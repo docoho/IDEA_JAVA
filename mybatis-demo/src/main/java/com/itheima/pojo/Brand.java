@@ -9,6 +9,7 @@ public class Brand {
     private String gender;
     private String address;
     private String major;
+    private Integer course;
 
 
     public Brand() {
@@ -16,12 +17,13 @@ public class Brand {
 
 
     public Brand(int id, String username, String gender, String address,
-             String major) {
+             String major,Integer course) {
         this.id = id;
         this.name = username;
         this.gender = gender;
         this.address = address;
         this.major = major;
+        this.course = course;
     }
 
     public Integer getId() {

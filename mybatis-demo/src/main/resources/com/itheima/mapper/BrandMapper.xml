@@ -77,7 +77,8 @@
         set fullname = #{name},
             gender   = #{gender},
             adress   = #{address},
-            major    = #{major}
-        where id = #{id};
+            major    = #{major},
+            class = #{course}
+        where identity = #{id};
     </update>
 </mapper>

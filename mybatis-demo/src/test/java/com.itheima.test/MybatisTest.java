@@ -30,11 +30,12 @@ public class MybatisTest {
         String gender = "F";
         String major = "PE";
         String address = "New york";
+        int course = 2;
         /*name = "%" + name + "%";
         gender = "%" + gender + "%";*/
 
         //object
-        Brand brand = new Brand(id,name,gender,address,major);
+        Brand brand = new Brand(id,name,gender,address,major,course);
 
 
         //Map
@@ -71,11 +72,12 @@ public class MybatisTest {
         String gender = "F";
         String major = "PE";
         String address = "New york";
+        int course = 2;
         /*name = "%" + name + "%";
         gender = "%" + gender + "%";*/
 
         //object
-        Brand brand = new Brand(id,name,gender,address,major);
+        Brand brand = new Brand(id,name,gender,address,major,course);
 
 
         //Map
