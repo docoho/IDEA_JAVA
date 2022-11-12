@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!--
+    namespace:名称空间
+-->
+
+<mapper namespace="com.itheima.mapper.BrandMapper">
+    <resultMap id="BrandMapper" type="Brand">
+        <!--column数据库中的字段，property实体类中的属性-->
+        <result column="adress" property="address"/>
+        <result column="fullname" property="name"/>
+
+    </resultMap>
+
+    <select id="selectAll" resultMap="BrandMapper">
+        select *
+        from student;
+    </select>
+
+
+    <select id="selectByID" resultMap="BrandMapper">
+        select *
+        from student
+        where id = #{id};
+    </select>
+
+    <select id="selectByCondition" resultMap="BrandMapper">
+        select
+        *
+        from student
+        -- where 1=1
+        <where>
+            <if test="id != null">and id = #{id}</if>
+
+            <if test="name != null and name!=''">and fullname like #{name}</if>
+
+            <if test="gender!=null and gender!=''">and gender like #{gender};
+            </if>
+        </where>
+
+
+    </select>
+    <select id="selectBySingleCondition"
+            resultMap="BrandMapper">
+        select
+        *
+        from student
+        where
+        <choose>
+            <when test="id!=null">
+                id = #{id}
+            </when>
+            <when test="name!=null and name!=''">
+                name like #{name}
+            </when>
+            <when test="gender!=null and gender!=''">
+                gender like #{gender}
+            </when>
+            <otherwise>
+                1=1
+            </otherwise>
+        </choose>
+
+    </select>
+
+    <insert id="selectAddData" useGeneratedKeys="true" keyProperty="id">
+        insert into student (fullname, gender, adress, major)
+        values (#{name}, #{gender}, #{address}, #{major});
+    </insert>
+
+
+    <update id="updateAll">
+        update student
+        set fullname = #{name},
+            gender   = #{gender},
+            adress   = #{address},
+            major    = #{major}
+        where id = #{id};
+    </update>
+</mapper>

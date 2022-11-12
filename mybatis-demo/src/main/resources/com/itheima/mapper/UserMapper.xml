@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!--
+    namespace:名称空间
+-->
+
+<mapper namespace="com.itheima.mapper.UserMapper">
+    <resultMap id="UserMap" type="User">
+        <!--column数据库中的字段，property实体类中的属性-->
+        <result column="adress" property="address"/>
+        <result column="fullname" property="name"/>
+
+    </resultMap>
+
+
+    <select id="selectAll" resultMap="UserMap">
+        select *
+        from student;
+    </select>
+    <select id="selectById" resultMap="UserMap">
+        select *
+        from student where id = #{id};
+
+    </select>
+
+
+
+</mapper>
